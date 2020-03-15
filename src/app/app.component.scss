@@ -1,35 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500&display=swap");
 :host {
+  font-family: "Montserrat", sans-serif;
   text-align: center;
   width: 80vw;
+  background-image: linear-gradient(-1deg, #394458, #191e28 96%);
 }
 
-nz-header,
-nz-footer {
-  background: #7dbcea;
-  color: #fff;
+.results {
+  background: #f6ffed;
+  border: 2px solid #b7eb8f;
+
+  &.alert {
+    background: #fff1f0;
+    border: 2px solid #ffa39e;
+  }
 }
 
-nz-footer {
-  line-height: 1.5;
+.pending {
+  color: black;
 }
-
-nz-sider {
-  background: #3ba0e9;
-  color: #fff;
-  line-height: 120px;
+.incorrect {
+  color: indianred;
 }
-
-nz-content {
-  background: rgba(16, 142, 233, 1);
-  color: #fff;
-  min-height: 120px;
-  line-height: 120px;
-}
-
-nz-layout {
-  margin-bottom: 48px;
-}
-
-nz-layout:last-child {
-  margin: 0;
+.correct {
+  color: darkseagreen;
 }

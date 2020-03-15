@@ -1,18 +1,53 @@
-
-<div nz-row style="padding-top: 100px ">
+<div
+  nz-row
+  style="padding-top: 100px;background-image: linear-gradient(-1deg,#394458,#191e28 96%); height: 100vh "
+>
   <div nz-col nzSpan="12" nzOffset="6">
     <nz-card style="width:100%;">
-      <h1>Type the text bellow</h1>
+      <nz-card style="width:100%;background-color: #edf1fd;">
+        <h1>
+          Type the text bellow
+        </h1>
+      </nz-card>
       <form nz-form class="login-form">
         <nz-form-item>
           <nz-form-control nzErrorTip="Please input your username!">
-            <h3>{{ randomText }}</h3>
+            <h3>
+              <span
+                [class]="compareInputs(letter, userText[i])"
+                *ngFor="let letter of randomText.split(''); let i = index"
+                >{{ letter }}</span
+              >
+            </h3>
             <label>
-              <input type="text" nz-input placeholder="Start typing here" />
+              <input
+                type="text"
+                (input)="handleInput($event)"
+                nz-input
+                placeholder="Start typing here"
+              />
             </label>
           </nz-form-control>
         </nz-form-item>
       </form>
+      <div *ngIf="userText">
+        <nz-card
+          *ngIf="randomText === userText; else elseBlock"
+          style="width:100%;"
+          class="results"
+        >
+          <div>
+            <h1>Success!</h1>
+          </div>
+        </nz-card>
+        <ng-template #elseBlock>
+          <nz-card style="width:100%;" class="results alert">
+            <div>
+              <h1>Error!</h1>
+            </div>
+          </nz-card>
+        </ng-template>
+      </div>
     </nz-card>
   </div>
 </div>
